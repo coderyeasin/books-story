@@ -6,6 +6,7 @@ import {
 
 import './App.css';
 import Home from "./components/Home/Home";
+import Update from "./components/Topics/Update";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/update/:id" element={<Update />} />
 
       </Routes>
     </BrowserRouter>

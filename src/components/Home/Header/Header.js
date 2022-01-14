@@ -56,7 +56,8 @@ const Header = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+                            color="inherit"
+                            sx={{ mr: 2 }}
             >
               <MenuIcon />
             </IconButton>
@@ -108,8 +109,10 @@ const Header = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
+                                Add Topics
               </IconButton>
+              
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
