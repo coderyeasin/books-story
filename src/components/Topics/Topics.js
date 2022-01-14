@@ -25,7 +25,10 @@ const Topics = () => {
                 {topic?.description}
               </Typography>
 
-              <Link to={`/update/${topic?.id}`}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/update/${topic?.id}`}
+              >
                 <Button
                   onClick={() => updateTopics(topic?.id)}
                   sx={{ mx: 2 }}

@@ -8,7 +8,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import initialBooks from "../Firebase/Firebase.init";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const useFirebase = () => {
   //states
@@ -18,6 +18,7 @@ const useFirebase = () => {
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   //database
   const db = initialBooks();
@@ -43,10 +44,6 @@ const useFirebase = () => {
       description: description,
     }).then(() => {
       alert("successfully added new Topics");
-      setTitle("");
-      setName("");
-      setSubject("");
-      setDescription("");
     });
   };
 
@@ -76,6 +73,7 @@ const useFirebase = () => {
     const data = doc(db, "topics", id);
     await deleteDoc(data).then(() => {
       alert("deleted successfully");
+      window.location.reload();
     });
   };
 

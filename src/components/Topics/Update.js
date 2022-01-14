@@ -97,7 +97,7 @@ const Update = () => {
               <br />
               <Button
                 onClick={() => {
-                  updateTopics(id, topic.title);
+                  updateTopics(id, topics);
                 }}
                 type="submit"
                 variant="contained"
