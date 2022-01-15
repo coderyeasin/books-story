@@ -8,7 +8,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import initialBooks from "../Firebase/Firebase.init";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const useFirebase = () => {
   //states
@@ -19,7 +19,6 @@ const useFirebase = () => {
   const [description, setDescription] = useState("");
   const [chapter, setChapter] = useState("");
   const navigate = useNavigate();
-  const location = useLocation();
 
   //database
   const db = initialBooks();
@@ -74,6 +73,7 @@ const useFirebase = () => {
   };
 
   //Delete
+
   const handleDelete = async (id) => {
     console.log(id);
     const data = doc(db, "topics", id);

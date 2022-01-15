@@ -29,23 +29,21 @@ const Update = () => {
     const getTopics = async () => {
       const data = await getDocs(topicsCollectionRef);
       const a = data.docs.filter((e) => ({ ...e.data() }));
-      const b = a.filter((e) => e.id === id);
       setTopics(a.filter((e) => e.id === id).map((e) => e.data()));
-      //   setTopics(b.map((e) => e.data()));
     };
     getTopics();
   }, []);
 
   return (
     <div>
-      <h3>Update : {id}</h3>
+      <h3>Add your new value to change this topics : {id}</h3>
 
       {topics.map((topic) => {
         return (
-          <div key={topic.id}>
+          <div key={id}>
             <Paper
               elevation={3}
-              sx={{ m: 2, py: 2, width: "75%" }}
+              sx={{ m: 2, py: 2, width: "75%", mx: "auto" }}
               key={topic.id}
             >
               <Typography variant="h3" gutterBottom component="div">
