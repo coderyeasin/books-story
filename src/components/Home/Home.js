@@ -49,19 +49,6 @@ const Home = () => {
   const { setTitle, setName, setSubject, setDescription, addNewTopics } =
     useFirebase();
 
-  const handleTitles = (event) => {
-    setTitle(event.target.value);
-    console.log(event.target.value);
-  };
-  const handleNames = (event) => {
-    setName(event.target.value);
-  };
-  const handleSubjects = (event) => {
-    setSubject(event.target.value);
-  };
-  const handleDescription = (event) => {
-    setDescription(event.target.value);
-  };
   const handleChange = (event) => {
     setTopics(event.target.value);
   };
@@ -69,16 +56,6 @@ const Home = () => {
   const [openBooking, setBookingOpen] = React.useState(false);
   const handleBookingOpen = () => setBookingOpen(true);
   const handleBookingClose = () => setBookingOpen(false);
-
-  // const handleTitle = e => {
-  //     console.log(e.target.value);
-  //     console.log(e.target.value);
-  //  }
-
-  // const handleBookingSubmit = e => {
-  //     e.preventDefault()
-  //     console.log(e);
-  // }
 
   return (
     <div>
@@ -126,13 +103,18 @@ const Home = () => {
                   name="title"
                   size="small"
                   placeholder="Topics Title"
-                  onBlur={handleTitles}
+                  onBlur={(e) => {
+                    setTitle(e.target.value);
+                    console.log(e.target.value);
+                  }}
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}
                   id="outlined-size-small"
                   name="name"
-                  onBlur={handleNames}
+                  onBlur={(e) => {
+                    setName(e.target.value);
+                  }}
                   size="small"
                   placeholder="Author Name"
                 />
@@ -142,7 +124,9 @@ const Home = () => {
                   select
                   label="Select"
                   value={topics}
-                  onBlur={handleSubjects}
+                  onBlur={(e) => {
+                    setSubject(e.target.value);
+                  }}
                   onChange={handleChange}
                   name="subject"
                   helperText="Please select your subject"
@@ -158,7 +142,9 @@ const Home = () => {
                   aria-label="minimum height"
                   name="description"
                   minRows={5}
-                  onBlur={handleDescription}
+                  onBlur={(e) => {
+                    setDescription(e.target.value);
+                  }}
                   placeholder="Share your knowledge with us..."
                 />
                 <Button

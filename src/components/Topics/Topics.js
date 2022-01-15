@@ -4,8 +4,7 @@ import { Button, Paper, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Topics = () => {
-  const { topics, updateTopics, handleDelete } = useFirebase();
-
+  const { topics, handleDelete } = useFirebase();
   return (
     <div>
       {topics.map((topic) => {
@@ -25,16 +24,9 @@ const Topics = () => {
                 {topic?.description}
               </Typography>
 
-              <Link
-                style={{ textDecoration: "none" }}
-                to={`/update/${topic?.id}`}
-              >
-                <Button
-                  onClick={() => updateTopics(topic?.id)}
-                  sx={{ mx: 2 }}
-                  variant="contained"
-                >
-                  Update
+              <Link to={`/update/${topic?.id}`}>
+                <Button sx={{ mx: 2 }} variant="contained">
+                  Changes
                 </Button>
               </Link>
               <Button

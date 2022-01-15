@@ -29,8 +29,8 @@ const Update = () => {
       const data = await getDocs(topicsCollectionRef);
       const a = data.docs.filter((e) => ({ ...e.data() }));
       const b = a.filter((e) => e.id === id);
-      console.log(b.map((e) => e.data()));
-      setTopics(b.map((e) => e.data()));
+      setTopics(a.filter((e) => e.id === id).map((e) => e.data()));
+      //   setTopics(b.map((e) => e.data()));
     };
     getTopics();
   }, []);
@@ -96,13 +96,11 @@ const Update = () => {
               />{" "}
               <br />
               <Button
-                onClick={() => {
-                  updateTopics(id, topics);
-                }}
+                onClick={() => updateTopics(id)}
                 type="submit"
                 variant="contained"
               >
-                Updated Value
+                Updated value
               </Button>
             </Paper>
           </div>
