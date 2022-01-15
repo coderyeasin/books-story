@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Grid, MenuItem, TextareaAutosize, TextField } from "@mui/material";
-import Algebra from "../Subjects/Math/Algebra";
-import Geometry from "../Subjects/Math/Geometry";
 import Header from "./Header/Header";
 import Button from "@mui/material/Button";
 import Backdrop from "@mui/material/Backdrop";
@@ -63,9 +61,6 @@ const Home = () => {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <Topics />
-
-          {/* <Algebra /> */}
-          <Geometry />
         </Grid>
         <Grid item xs={4} my={3}>
           <Button onClick={handleBookingOpen} variant="contained">
