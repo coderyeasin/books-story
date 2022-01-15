@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
+  const [chapter, setChapter] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -42,8 +43,12 @@ const useFirebase = () => {
       name: name,
       subject: subject,
       description: description,
-    }).then(() => {
-      alert("successfully added new Topics");
+      chapter: chapter,
+    }).then((data) => {
+      if (data) {
+        alert("successfully added new Topics");
+        window.location.reload();
+      }
     });
   };
 
@@ -57,10 +62,11 @@ const useFirebase = () => {
       name: name,
       subject: subject,
       description: description,
+      chapter: chapter,
     })
       .then(() => {
-        // alert("success update");
-        // navigate("/home");
+        alert("successfully update");
+        navigate("/home");
       })
       .catch((error) => {
         alert(error, "wrong");
@@ -87,6 +93,7 @@ const useFirebase = () => {
     updateTopics,
     handleDelete,
     topicsCollectionRef,
+    setChapter,
   };
 };
 

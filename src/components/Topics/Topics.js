@@ -11,22 +11,29 @@ const Topics = () => {
         return (
           <div key={topic.id}>
             <Paper elevation={3} sx={{ m: 2, py: 2 }}>
-              <Typography variant="h3" gutterBottom component="div">
+              <Typography variant="h4" gutterBottom component="div">
                 Title: {topic?.title}
               </Typography>
 
               <Typography variant="h5" gutterBottom component="div">
-                Author Name: {topic?.name} || Subject: {topic?.subject}
+                Topic: {topic?.chapter} || Subject: {topic?.subject}
+              </Typography>
+
+              <Typography variant="h6" gutterBottom component="div">
+                Author Name : {topic?.name}
               </Typography>
 
               <Typography variant="body2" gutterBottom sx={{ mx: 2 }}>
-                <strong>History: </strong>
-                {topic?.description}
+                <strong>Description: </strong>
+                {topic?.description.slice(0, 520)}...
               </Typography>
 
-              <Link to={`/update/${topic?.id}`}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/update/${topic?.id}`}
+              >
                 <Button sx={{ mx: 2 }} variant="contained">
-                  Changes
+                  Update
                 </Button>
               </Link>
               <Button

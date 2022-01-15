@@ -44,8 +44,14 @@ const style = {
 const Home = () => {
   const [topics, setTopics] = useState("Math");
 
-  const { setTitle, setName, setSubject, setDescription, addNewTopics } =
-    useFirebase();
+  const {
+    setTitle,
+    setName,
+    setSubject,
+    setDescription,
+    setChapter,
+    addNewTopics,
+  } = useFirebase();
 
   const handleChange = (event) => {
     setTopics(event.target.value);
@@ -112,6 +118,16 @@ const Home = () => {
                   }}
                   size="small"
                   placeholder="Author Name"
+                />
+                <TextField
+                  sx={{ width: "90%", m: 1 }}
+                  id="outlined-size-small"
+                  name="name"
+                  onBlur={(e) => {
+                    setChapter(e.target.value);
+                  }}
+                  size="small"
+                  placeholder="which chapter"
                 />
                 <TextField
                   sx={{ width: "90%", m: 1 }}
